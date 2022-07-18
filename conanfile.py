@@ -28,13 +28,12 @@ class LapackConan(ConanFile):
     options = {"shared": [True, False], "fPIC": [True, False]}
     default_options = {"shared": True, "fPIC": True}
     exports = "LICENSE"
-    exports_sources = "CMakeLists.txt"
+    exports_sources = ["CMakeLists.txt", "lapack/*"]
     generators = "cmake"
     requires = "zlib/1.2.11"
     deprecated = True
     _source_subfolder = "source_subfolder"
     _build_subfolder = "build_subfolder"
-    exports_sources = ["lapack/*"]
 
     def config_options(self):
         if self.settings.os == "Windows":
